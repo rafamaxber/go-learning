@@ -1,6 +1,7 @@
-## How to start in golang after installation today 21/11/2021
+## How to start in golang after installation today 16/10/2024
 
-Create a path and run in terminal **go mod init** any_package_name with golang version 1.17.2.
+Create a path and run in terminal **go mod init** any_package_name with golang version 1.23.2, the standard is create a package name like you github repository, example.: **go mod init github.com/rafamaxber/hello-word**
+
 To install all packages we can run in terminal **go mod tidy** inside the same path are your **go.mod** file.
 
 ### First example
