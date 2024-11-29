@@ -26,3 +26,32 @@ To develop using live reload, we can use **nodemon** a npm package running in te
 ```bash
 nodemon --exec go run main.go --signal SIGTERM
 ```
+
+We should to use `defer` when we need to call some `function` on final parent function execution.
+
+```go
+defer db.Close()
+```
+
+Example:
+
+```go
+func (c *Category) FindAll() ([]Category, error) {
+	rows, err := c.db.Query("SELECT id, name, description FROM categories")
+	if err != nil {
+		return nil, err
+	}
+
+  defer rows.Close() // would be executed after return categories, nil
+
+	categories := []Category{}
+	for rows.Next() {
+		var id, name, description string
+		if err := rows.Scan(&id, &name, &description); err != nil {
+			return nil, err
+		}
+		categories = append(categories, Category{ID: id, Name: name, Description: description})
+	}
+	return categories, nil
+}
+```
