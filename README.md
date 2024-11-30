@@ -4,6 +4,10 @@ Create a path and run in terminal **go mod init** any_package_name with golang v
 
 To install all packages we can run in terminal **go mod tidy** inside the same path are your **go.mod** file.
 
+### Interesting Docs
+https://gobyexample.com
+https://github.com/golang-standards/project-layout/blob/master/README_ptBR.md
+
 ### First example
 
 Create a **main.go** and inside the file write:
